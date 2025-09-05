@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absen</title>
+    <style>
+        /* Pastikan iframe memenuhi lebar layar dan tinggi minimal 800px */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        iframe#gform {
+            width: 100%;
+            min-height: 800px;
+            border: none;
+            display: block;
+        }
+
+        /* Responsif untuk mobile */
+        @media (max-width: 600px) {
+            iframe#gform {
+                min-height: 1200px; /* Google Form lebih tinggi di mobile */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Google Form iframe -->
+    <iframe id="gform"
+        src="https://docs.google.com/forms/d/e/1FAIpQLSfAxsjz8X_cY_rm0kUfBrG_DviaFSTyE7jZbtL9YcPa2xsBLg/viewform?usp=dialog">
+        Loading…
+    </iframe>
+
+    <!-- Optional: redirect/commented out untuk keamanan di GitHub Pages -->
+    <script type="text/javascript">
+        // var load = 0;
+        // document.getElementById('gform').onload = function () {
+        //     load++;
+        //     if (load > 1) {
+        //         // Uncomment dan ganti URL jika ingin redirect ke WebApp Google Script
+        //         // document.location = "https://script.google.com/macros/s/AKfycby1DN_qdoSqO80hd51irNLVFvuz1aIN78J2JhdKYD263yzXkqpOU_Aj5bnsLI6f1igq/exec";
+        //     }
+        // }
+    </script>
+</body>
+
+</html>
