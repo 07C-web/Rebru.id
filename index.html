@@ -1,67 +1,31 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Form Absen</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absen</title>
 </head>
+
 <body>
-  <header class="site-header">
-    <h1>Form Absen</h1>
-    <p class="subtitle">Silakan isi form di bawah ini</p>
-  </header>
-
-  <main class="wrap">
-    <!-- pastikan src menggunakan embed=true (ambil dari tombol < > di Google Forms "Send") -->
+    <!-- ganti src url dengan url form anda -->
     <iframe id="gform"
-      src="https://docs.google.com/forms/d/e/1FAIpQLSdJoZMkJHe0etxoGWOCZO8e9QTA0R6xCx_MiJ7zTl1whRRjJw/viewform?embedded=true"
-      title="Google Form"></iframe>
+        src="https://docs.google.com/forms/d/e/1FAIpQLSfAxsjz8X_cY_rm0kUfBrG_DviaFSTyE7jZbtL9YcPa2xsBLg/viewform?embedded=true"
+        width="100%" height="407" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 
-    <div id="fallback" class="fallback" style="display:none;">
-      <strong>Form tidak dapat dimuat di dalam iframe.</strong>
-      <p>Buka langsung: <a id="formLink" href="#" target="_blank" rel="noopener">Buka Google Form</a></p>
-      <p class="small">Jika muncul error di Console yang menyebut <code>X-Frame-Options</code> atau <code>Content Security Policy</code>, embedding tidak diperbolehkan oleh Google/akun.</p>
-    </div>
+    <script type="text/javascript">
+        var load = 0;
+        // sesuaikan id gform dengan id yang ada pada tag iframe di atas
+        document.getElementById('gform').onload = function () {
+            load++;
+            if (load > 1) {
+                // ganti url dibawah dengan url webapp anda
+                document.location = "https://script.google.com/macros/s/AKfycby1DN_qdoSqO80hd51irNLVFvuz1aIN78J2JhdKYD263yzXkqpOU_Aj5bnsLI6f1igq/exec";
 
-    <div class="diagnostic">
-      <p class="small">Log diagnostik (waktu muat iframe):</p>
-      <pre id="log" class="log">menunggu...</pre>
-    </div>
-  </main>
-
-  <script>
-    (function(){
-      const iframe = document.getElementById('gform');
-      const logEl = document.getElementById('log');
-      const fallback = document.getElementById('fallback');
-      const formLink = document.getElementById('formLink');
-      const src = iframe.src;
-      formLink.href = src;
-
-      function write(line){
-        if(logEl.textContent === 'menunggu...') logEl.textContent = '';
-        logEl.textContent += '[' + new Date().toLocaleTimeString() + '] ' + line + "\\n";
-        logEl.scrollTop = logEl.scrollHeight;
-        console.log(line);
-      }
-
-      let loaded = false;
-      iframe.addEventListener('load', function(){
-        loaded = true;
-        write('iframe onload fired — iframe seharusnya terlihat.');
-      });
-
-      // kalau after 6s iframe belum load, tampilkan fallback & instruksi
-      setTimeout(function(){
-        if(!loaded){
-          write('iframe belum load setelah 6 detik — kemungkinan diblokir atau lambat.');
-          fallback.style.display = 'block';
+            }
         }
-      }, 6000);
-
-      // additional check: open src in new tab programmatically when user clicks log (not automatic)
-    })();
-  </script>
+    </script>
 </body>
+
 </html>
