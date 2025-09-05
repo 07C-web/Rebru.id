@@ -1,42 +1,37 @@
-/* Reset dasar */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Warna background dan font global */
+/* Reset margin agar form tidak menempel ke pinggir layar */
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f4f6f9;
-  color: #333;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  min-height: 100vh;
-  padding: 20px;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
 }
 
 /* Container untuk iframe */
 .container {
-  background: #fff;
-  width: 100%;
-  max-width: 900px; /* agar form tidak terlalu lebar di layar besar */
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+    max-width: 900px;        /* agar tidak terlalu lebar */
+    margin: 20px auto;       /* center secara horizontal */
+    padding: 10px;
+    background: #fff;        /* background putih */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Iframe Google Form */
 iframe#gform {
-  width: 100%;
-  min-height: 800px; /* tinggi default */
-  border: none;
+    width: 100%;
+    min-height: 1000px;      /* tinggi cukup besar agar form muat */
+    border: none;
 }
 
-/* Responsif untuk layar kecil */
+/* Tambahan responsif untuk layar kecil */
 @media (max-width: 600px) {
-  iframe#gform {
-    min-height: 1200px; /* form lebih tinggi di mobile */
-  }
+    .container {
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    iframe#gform {
+        min-height: 1300px;
+    }
 }
