@@ -1,37 +1,24 @@
-/* Reset margin agar form tidak menempel ke pinggir layar */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f6f9;
+/* Minimal styling — tidak mengubah style di dalam iframe */
+:root {
+  --max-w: 980px;
+  --bg: #f4f6f9;
+  --card: #ffffff;
+  --muted: #6b7280;
 }
+*{box-sizing:border-box}
+body,html{height:100%;margin:0;font-family:Inter,Arial,Helvetica,sans-serif;background:var(--bg);color:#111}
+.site-header{text-align:center;padding:20px 12px 6px}
+.site-header h1{margin:0;font-size:20px}
+.site-header .subtitle{margin-top:6px;color:var(--muted);font-size:13px}
 
-/* Container untuk iframe */
-.container {
-    max-width: 900px;        /* agar tidak terlalu lebar */
-    margin: 20px auto;       /* center secara horizontal */
-    padding: 10px;
-    background: #fff;        /* background putih */
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
+.wrap{max-width:var(--max-w);margin:18px auto;padding:12px;background:var(--card);border-radius:10px;box-shadow:0 6px 20px rgba(17,24,39,0.06)}
+/* Iframe: beri tinggi yang cukup; jangan bungkus container dengan fixed height */
+iframe#gform{width:100%; height:calc(100vh - 220px); min-height:780px; border:0; display:block; background:transparent}
+.fallback{margin-top:12px;padding:12px;background:#fff6f0;border-left:4px solid #ffd6bf;border-radius:6px}
+.log{background:#0b0b0b;color:#9fffc1;padding:8px;border-radius:6px;max-height:160px;overflow:auto;font-size:12px;margin-top:12px}
+.small{font-size:12px;color:var(--muted)}
 
-/* Iframe Google Form */
-iframe#gform {
-    width: 100%;
-    min-height: 1000px;      /* tinggi cukup besar agar form muat */
-    border: none;
-}
-
-/* Tambahan responsif untuk layar kecil */
-@media (max-width: 600px) {
-    .container {
-        margin: 0;
-        border-radius: 0;
-        box-shadow: none;
-    }
-
-    iframe#gform {
-        min-height: 1300px;
-    }
+@media (max-width:600px){
+  iframe#gform{height:calc(100vh - 180px); min-height:1000px}
+  .wrap{border-radius:6px;margin:0}
 }
