@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Form Absen</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Form Absen</h1>
+    <p class="subtitle">Silakan isi form di bawah ini</p>
+  </header>
+
+  <main class="wrap">
+    <!-- pastikan src menggunakan embed=true (ambil dari tombol < > di Google Forms "Send") -->
+    <iframe id="gform"
+      src="https://docs.google.com/forms/d/e/1FAIpQLSdJoZMkJHe0etxoGWOCZO8e9QTA0R6xCx_MiJ7zTl1whRRjJw/viewform?embedded=true"
+      title="Google Form"></iframe>
+
+    <div id="fallback" class="fallback" style="display:none;">
+      <strong>Form tidak dapat dimuat di dalam iframe.</strong>
+      <p>Buka langsung: <a id="formLink" href="#" target="_blank" rel="noopener">Buka Google Form</a></p>
+      <p class="small">Jika muncul error di Console yang menyebut <code>X-Frame-Options</code> atau <code>Content Security Policy</code>, embedding tidak diperbolehkan oleh Google/akun.</p>
+    </div>
+
+    <div class="diagnostic">
+      <p class="small">Log diagnostik (waktu muat iframe):</p>
+      <pre id="log" class="log">menunggu...</pre>
+    </div>
+  </main>
+
+  <script>
+    (function(){
+      const iframe = document.getElementById('gform');
+      const logEl = document.getElementById('log');
+      const fallback = document.getElementById('fallback');
+      const formLink = document.getElementById('formLink');
+      const src = iframe.src;
+      formLink.href = src;
+
+      function write(line){
+        if(logEl.textContent === 'menunggu...') logEl.textContent = '';
+        logEl.textContent += '[' + new Date().toLocaleTimeString() + '] ' + line + "\\n";
+        logEl.scrollTop = logEl.scrollHeight;
+        console.log(line);
+      }
+
+      let loaded = false;
+      iframe.addEventListener('load', function(){
+        loaded = true;
+        write('iframe onload fired — iframe seharusnya terlihat.');
+      });
+
+      // kalau after 6s iframe belum load, tampilkan fallback & instruksi
+      setTimeout(function(){
+        if(!loaded){
+          write('iframe belum load setelah 6 detik — kemungkinan diblokir atau lambat.');
+          fallback.style.display = 'block';
+        }
+      }, 6000);
+
+      // additional check: open src in new tab programmatically when user clicks log (not automatic)
+    })();
+  </script>
+</body>
+</html>
