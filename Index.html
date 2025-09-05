@@ -3,77 +3,25 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Diagnostik - Form Absen</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin:0; background:#f4f6f9; color:#222; }
-    .wrap { max-width:900px; margin:20px auto; padding:16px; background:#fff; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,.08); }
-    h1{font-size:20px;margin-bottom:8px}
-    p.note{font-size:13px;color:#555}
-    iframe#gform{width:100%; min-height:800px; border:1px solid #eee; display:block;}
-    #fallback{display:none; margin-top:12px; padding:12px; background:#fff3cd; border-left:4px solid #ffeeba;}
-    pre.log{background:#0b0b0b;color:#0fff9a;padding:8px;border-radius:6px; max-height:180px; overflow:auto; font-size:12px}
-  </style>
+  <title>Form Absen</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="wrap">
-    <h1>Diagnostik: Form Absen</h1>
-    <p class="note">Jika form tidak muncul, lihat <code>Console</code> & <code>Network</code> di DevTools. Di bawah ada log realtime.</p>
+  <header class="site-header">
+    <h1>Form Absen</h1>
+    <p class="subtitle">Silakan isi form di bawah ini</p>
+  </header>
 
+  <main class="wrap">
     <iframe id="gform"
       src="https://docs.google.com/forms/d/e/1FAIpQLSdJoZMkJHe0etxoGWOCZO8e9QTA0R6xCx_MiJ7zTl1whRRjJw/viewform?embedded=true"
       title="Google Form"></iframe>
 
-    <div id="fallback">
-      <strong>Form mungkin diblokir di iframe.</strong>
-      <p>Jika tidak tampil, buka form langsung: <a id="formLink" href="#" target="_blank">Buka Google Form</a></p>
-    </div>
+    <noscript>
+      <p>Jika tidak muncul, buka langsung: <a href="https://docs.google.com/forms/d/e/1FAIpQLSdJoZMkJHe0etxoGWOCZO8e9QTA0R6xCx_MiJ7zTl1whRRjJw/viewform">Buka Google Form</a></p>
+    </noscript>
+  </main>
 
-    <h3>Log (console-like)</h3>
-    <pre id="log" class="log">menunggu...</pre>
-  </div>
-
-  <script>
-    (function(){
-      const logEl = document.getElementById('log');
-      const fb = document.getElementById('fallback');
-      const iframe = document.getElementById('gform');
-      const link = document.getElementById('formLink');
-      const src = iframe.src;
-      link.href = src;
-
-      function write(s){
-        if(logEl.textContent === 'menunggu...') logEl.textContent = '';
-        logEl.textContent += '[' + new Date().toLocaleTimeString() + '] ' + s + "\n";
-        logEl.scrollTop = logEl.scrollHeight;
-        console.log(s);
-      }
-
-      let loads = 0;
-      iframe.onload = function(){
-        loads++;
-        write('iframe onload fired #' + loads);
-        // if onload never fired but fired once -> OK. Multiple loads often mean internal redirects.
-      };
-
-      // after 8s if iframe not loaded show fallback
-      let loaded = false;
-      iframe.addEventListener('load', ()=>{ loaded = true; });
-      setTimeout(()=>{
-        if(!loaded){
-          write('iframe belum memanggil onload setelah 8 detik — tampilkan fallback.');
-          fb.style.display = 'block';
-        } else {
-          write('iframe sudah load.');
-        }
-      }, 8000);
-
-      // also try to detect embedding refusal by creating image ping to docs domain (best effort)
-      fetch(src, {method:'HEAD', mode:'no-cors'}).catch(e=>{
-        // ignore; this is not reliable cross-origin, but keep for info
-        write('HEAD request gagal (CORS expected).');
-      });
-
-    })();
-  </script>
+  <!-- tanpa redirect JS -->
 </body>
 </html>
