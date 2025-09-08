@@ -1,56 +1,32 @@
 <!DOCTYPE html>
-<html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <title>Report</title>
-    <style>
-      body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: #f4f6f9;
-      }
-      .container {
-        max-width: 960px;
-        margin: 0 auto;
-        padding: 0;
-      }
-      iframe#gform {
-        width: 100%;
-        height: 2000px; /* tinggi besar biar form tidak bikin scroll dalam */
-        border: none;
-        display: block;
-      }
-    </style>
-  </head>
+<html lang="en">
 
-  <body>
-    <div class="container">
-      <iframe
-        id="gform"
-        src="https://docs.google.com/forms/d/e/1FAIpQLSfAxsjz8X_cY_rm0kUfBrG_DviaFSTyE7jZbtL9YcPa2xsBLg/viewform?embedded=true"
-        
-      >
-        Loading…
-      </iframe>
-    </div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absen</title>
+</head>
 
-    <script>
-      var load = 0;
-      var iframe = document.getElementById("gform");
+<body>
+    <!-- ganti src url dengan url form anda -->
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfAxsjz8X_cY_rm0kUfBrG_DviaFSTyE7jZbtL9YcPa2xsBLg/viewform?embedded=true" 
+     width="640" height="695" frameborder="0" marginheight="0" marginwidth="0">
+     Loading…
+    </iframe>
 
-      iframe.onload = function () {
-        load++;
-        if (load > 1) {
-          window.location.href =
-            "https://script.google.com/macros/s/AKfycbzLbwCgGaXRj1jpZZOZ8GPZyGkB0ZOHPf2B6izFy_3OG9VeX-hpBju50tZGupyO4vzTLA/exec";
+    <script type="text/javascript">
+        var load = 0;
+        // sesuaikan id gform dengan id yang ada pada tag iframe di atas
+        document.getElementById('gform').onload = function () {
+            load++;
+            if (load > 1) {
+                // ganti url dibawah dengan url webapp anda
+                document.location = "https://script.google.com/macros/s/AKfycbzLbwCgGaXRj1jpZZOZ8GPZyGkB0ZOHPf2B6izFy_3OG9VeX-hpBju50tZGupyO4vzTLA/exec";
+
+            }
         }
-      };
     </script>
-  </body>
+</body>
+
 </html>
-
-
-
-
-
