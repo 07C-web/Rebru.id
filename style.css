@@ -15,10 +15,10 @@ body {
 }
 
 main {
-  flex: 1; /* konten mengisi sisa ruang */
+  flex: 1;
   display: flex;
-  justify-content: center; /* konten di tengah horizontal */
-  align-items: center; /* konten di tengah vertikal */
+  justify-content: center;
+  align-items: center;
   padding: 20px;
   text-align: center;
 }
@@ -27,22 +27,22 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 100px; /* jarak antara caption & logo */
-  flex-wrap: wrap; /* penting untuk hp*/
+  gap: 60px; /* lebih kecil biar aman */
+  flex-wrap: wrap; /* penting untuk HP */
   text-align: center;
 }
 
 #home h1 {
-  font-size: clamp(1.8rem, 5vw, 3.2rem); /*flexible sesuai layar*/
-  letter-spacing: 5px;
-  word-spacing: 7px;
+  font-size: clamp(1.8rem, 5vw, 3.2rem); /* fleksibel sesuai layar */
+  letter-spacing: 3px;
+  word-spacing: 6px;
   color: #051601;
   text-shadow: 2px 2px 8px rgba(250, 249, 249, 0.5);
 }
 
 #home img {
   max-width: 100%;
-  width: clamp(180px, 50%, 400px); /*Otomatis resize*/
+  width: clamp(180px, 50%, 400px); /* otomatis resize */
   height: auto;
 }
 
@@ -51,23 +51,25 @@ header {
   position: relative;
   background: rgba(0, 0, 0, 0.75);
   color: white;
-  padding: 15px 50px;
+  padding: 12px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap; /* biar nav turun ke bawah kalau sempit */
 }
 
 header .logo {
-  height: 50px;
+  height: 40px;
   margin-right: 10px;
 }
 
 nav a {
-  margin: 20px;
+  margin: 10px;
   text-decoration: none;
   color: white;
   font-weight: 600;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
 }
 
 nav a:hover {
@@ -84,7 +86,7 @@ nav a:hover {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #44444400;
+  background-color: rgba(68, 68, 68, 0.9);
   min-width: 160px;
   z-index: 1;
   border-radius: 8px;
@@ -92,8 +94,8 @@ nav a:hover {
 }
 
 .dropdown-content a {
-  color: rgb(255, 255, 255);
-  margin-top: 20px;
+  color: #fff;
+  margin: 10px 0;
   display: block;
   text-decoration: none;
 }
@@ -119,8 +121,9 @@ footer a {
 /* Example content styling */
 section {
   padding: 40px 20px;
+  max-width: 1200px;
+  margin: auto;
 }
-
 
 /* =====================
    MEDIA QUERIES
@@ -153,4 +156,3 @@ section {
     font-size: 0.85rem;
   }
 }
-
