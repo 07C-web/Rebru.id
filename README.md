@@ -1,4 +1,4 @@
-# Rebru.id - Form Absen
+Rebru.id Website
 
 Ini adalah repository untuk website statis **Rebru.id** yang menampilkan website company.  
 Website ini di-host menggunakan **GitHub Pages**.
