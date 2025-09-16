@@ -6,6 +6,12 @@
   font-family: "Quicksand", sans-serif;
 }
 
+body {
+  transform: scale(0.8);
+  transform-origin: top left;
+  width: 125%; /* supaya tidak ada space kosong */
+}
+
 html,
 body {
   min-height: 100vh;
@@ -156,3 +162,4 @@ section {
     font-size: 0.85rem;
   }
 }
+
