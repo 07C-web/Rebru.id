@@ -1,0 +1,117 @@
+/* Reset & font */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+}
+
+html,
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to right, #6d9693, #0c2506);
+}
+
+main {
+  flex: 1; /* konten mengisi sisa ruang */
+  display: flex;
+  justify-content: center; /* konten di tengah horizontal */
+  align-items: center; /* konten di tengah vertikal */
+  padding: 20px 20px;
+  text-align: center;
+}
+
+#home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 150px; /* jarak antara caption & logo */
+  text-align: center;
+}
+
+#home h1 {
+  font-size: 50px;
+  letter-spacing: 10px;
+  word-spacing: 15px;
+  color: #051601;
+  text-shadow: 2px 2px 8px rgba(250, 249, 249, 0.5);
+}
+
+#home img {
+  max-width: 500px;
+  height: auto;
+}
+
+/* Header */
+header {
+  position: relative;
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 15px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo {
+  height: 50px;
+  margin-right: 10px;
+}
+
+nav a {
+  margin: 20px;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+  color: rgb(0, 255, 42);
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #44444400;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: rgb(255, 255, 255);
+  margin-top: 20px;
+  display: block;
+  text-decoration: none;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Footer */
+footer {
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Example content styling */
+section {
+  padding: 60px 30px;
+}
