@@ -27,22 +27,24 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 100px; /* jarak antara caption & logo */
-  flex-wrap: wrap; /* penting untuk hp*/
+  gap: clamp(
+    20px,
+    8vw,
+    100px
+  ); /* jarak antara caption & logo , flexible tapi tetap sejajar*/
   text-align: center;
 }
 
 #home h1 {
-  font-size: clamp(1.8rem, 5vw, 3.2rem); /*flexible sesuai layar*/
-  letter-spacing: 5px;
-  word-spacing: 7px;
+  font-size: clamp(1.2rem, 5vw, 3rem); /*flexible sesuai layar*/
+  letter-spacing: 0.1em;
+  word-spacing: 0.3em;
   color: #051601;
   text-shadow: 2px 2px 8px rgba(250, 249, 249, 0.5);
 }
 
 #home img {
-  max-width: 100%;
-  width: clamp(180px, 50%, 400px); /*Otomatis resize*/
+  max-width: min(90vw, 400px);
   height: auto;
 }
 
@@ -55,6 +57,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: nowrap; /* jangan sampai pindah baris */
 }
 
 header .logo {
@@ -68,6 +71,8 @@ nav a {
   color: white;
   font-weight: 600;
   letter-spacing: 3px;
+  font-size: clamp(0.8rem, 2.5vw, 1rem);
+  white-space: nowrap; /* biar tidak patah */
 }
 
 nav a:hover {
@@ -120,36 +125,4 @@ footer a {
 section {
   padding: 40px 20px;
   margin: auto;
-}
-
-/* =====================
-   MEDIA QUERIES
-===================== */
-@media (max-width: 768px) {
-  #home {
-    flex-direction: column;
-    gap: 30px;
-  }
-
-  header {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  nav {
-    margin-top: 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  #home h1 {
-    font-size: 1.6rem;
-    letter-spacing: 1px;
-    word-spacing: 2px;
-  }
-
-  nav a {
-    margin: 5px;
-    font-size: 0.85rem;
-  }
 }
