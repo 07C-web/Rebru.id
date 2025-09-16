@@ -121,8 +121,43 @@ footer a {
   text-decoration: underline;
 }
 
+
+/* =====================
+   MEDIA QUERIES
+===================== */
+@media (max-width: 768px) {
+  #home {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  #home h1 {
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+  }
+
+  nav a {
+    margin: 5px;
+    font-size: 0.85rem;
+  }
+}
+
+
 /* Example content styling */
 section {
   padding: 40px 20px;
   margin: auto;
 }
+
