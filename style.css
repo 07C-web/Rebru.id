@@ -6,12 +6,6 @@
   font-family: "Quicksand", sans-serif;
 }
 
-body {
-  transform: scale(0.8);
-  transform-origin: top left;
-  width: 125%; /* supaya tidak ada space kosong */
-}
-
 html,
 body {
   min-height: 100vh;
@@ -21,66 +15,60 @@ body {
 }
 
 main {
-  flex: 1;
+  flex: 1; /* isi sisa ruang agar footer selalu di bawah */
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
-  text-align: center;
 }
 
+/* Section Home */
 #home {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 60px; /* lebih kecil biar aman */
-  flex-wrap: wrap; /* penting untuk HP */
+  gap: 100px; /* jarak antara gambar dan caption */
+  flex-wrap: wrap; /* supaya responsif di layar kecil */
   text-align: center;
 }
 
-#home h1 {
-  font-size: clamp(1.8rem, 5vw, 3.2rem); /* fleksibel sesuai layar */
-  letter-spacing: 3px;
-  word-spacing: 6px;
-  color: #051601;
-  text-shadow: 2px 2px 8px rgba(250, 249, 249, 0.5);
+#home img {
+  max-width: 350px;
+  height: auto;
 }
 
-#home img {
-  max-width: 100%;
-  width: clamp(180px, 50%, 400px); /* otomatis resize */
-  height: auto;
+#home h1 {
+  font-size: 2rem;
+  line-height: 1.4;
+  letter-spacing: 3px;
+  word-spacing: 5px;
+  color: white;
 }
 
 /* Header */
 header {
-  position: relative;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(1, 37, 13, 0.75);
   color: white;
-  padding: 12px 20px;
+  padding: 15px 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap; /* biar nav turun ke bawah kalau sempit */
 }
 
 header .logo {
-  height: 40px;
-  margin-right: 10px;
+  height: 50px;
+  margin-right: 7px;
 }
 
 nav a {
-  margin: 10px;
+  margin-left: 15px;
   text-decoration: none;
   color: white;
   font-weight: 600;
-  letter-spacing: 2px;
-  font-size: clamp(0.9rem, 2.5vw, 1rem);
 }
 
 nav a:hover {
-  text-decoration: underline;
-  color: rgb(0, 255, 42);
+  color: aquamarine;
 }
 
 /* Dropdown */
@@ -92,16 +80,14 @@ nav a:hover {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: rgba(68, 68, 68, 0.9);
+  background-color: #44444400;
   min-width: 160px;
   z-index: 1;
-  border-radius: 8px;
-  padding: 10px;
 }
 
 .dropdown-content a {
-  color: #fff;
-  margin: 10px 0;
+  color: white;
+  margin-top: 15px;
   display: block;
   text-decoration: none;
 }
@@ -115,51 +101,10 @@ footer {
   background: rgba(0, 0, 0, 0.75);
   color: white;
   text-align: center;
-  padding: 15px;
-  font-size: clamp(0.8rem, 2vw, 1rem);
+  padding: 5px;
 }
 
 footer a {
   color: #fff;
   text-decoration: underline;
 }
-
-/* Example content styling */
-section {
-  padding: 40px 20px;
-  max-width: 1200px;
-  margin: auto;
-}
-
-/* =====================
-   MEDIA QUERIES
-===================== */
-@media (max-width: 768px) {
-  #home {
-    flex-direction: column;
-    gap: 30px;
-  }
-
-  header {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  nav {
-    margin-top: 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  #home h1 {
-    font-size: 1.6rem;
-    letter-spacing: 1px;
-    word-spacing: 2px;
-  }
-
-  nav a {
-    margin: 5px;
-    font-size: 0.85rem;
-  }
-}
-
