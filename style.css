@@ -93,6 +93,8 @@ main {
 #home img {
   max-width: 350px;
   height: auto;
+  filter: drop-shadow(0 0 12px rgba(0, 63, 10, 0.5));
+
 }
 
 #home h1 {
@@ -142,3 +144,4 @@ footer a {
   color: #e1306c; /* contoh warna instagram */
   background: rgba(255, 255, 255, 0.06); /* subtle background */
 }
+
