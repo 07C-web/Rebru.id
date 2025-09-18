@@ -11,38 +11,10 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+body.home-page {
   background: linear-gradient(to right, #6d9693, #0c2506);
-}
-
-main {
-  flex: 1; /* isi sisa ruang agar footer selalu di bawah */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
-
-/* Section Home */
-#home {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 100px; /* jarak antara gambar dan caption */
-  flex-wrap: wrap; /* supaya responsif di layar kecil */
-  text-align: center;
-}
-
-#home img {
-  max-width: 350px;
-  height: auto;
-}
-
-#home h1 {
-  font-size: 2rem;
-  line-height: 1.4;
-  letter-spacing: 3px;
-  word-spacing: 5px;
-  color: white;
 }
 
 /* Header */
@@ -65,6 +37,10 @@ nav a {
   text-decoration: none;
   color: white;
   font-weight: 600;
+}
+
+nav a.active {
+  color: aquamarine;
 }
 
 nav a:hover {
@@ -96,6 +72,38 @@ nav a:hover {
   display: block;
 }
 
+main {
+  flex: 1; /* isi sisa ruang agar footer selalu di bawah */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Section Home */
+#home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 100px; /* jarak antara gambar dan caption */
+  flex-wrap: wrap; /* supaya responsif di layar kecil */
+  text-align: center;
+}
+
+#home img {
+  max-width: 350px;
+  height: auto;
+}
+
+#home h1 {
+  font-size: 2rem;
+  line-height: 1.4;
+  letter-spacing: 3px;
+  word-spacing: 5px;
+  color: rgb(1, 35, 1);
+  text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.75);
+}
+
 /* Footer */
 footer {
   background: rgba(1, 37, 13, 0.75);
@@ -106,5 +114,31 @@ footer {
 
 footer a {
   color: #fff;
-  text-decoration: underline;
+  text-decoration: none;
+}
+
+/* social icon umum */
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 93px; /* ukuran kotak klik */
+  border-radius: 8px; /* opsional */
+  text-decoration: none;
+  color: white; /* warna ikon default */
+  transition: transform 0.18s ease, background-color 0.18s ease,
+    color 0.18s ease;
+  margin-left: 5px; /* jarak ke menu lain */
+}
+
+/* ikon ukuran */
+.social-icon i {
+  font-size: 15px;
+}
+
+/* efek hover */
+.social-icon:hover {
+  transform: translateY(-2px);
+  color: #e1306c; /* contoh warna instagram */
+  background: rgba(255, 255, 255, 0.06); /* subtle background */
 }
