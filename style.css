@@ -47,6 +47,48 @@ nav a:hover {
   color: aquamarine;
 }
 
+/* Tombol hamburger */
+.menu-toggle {
+  display: none; /* default sembunyi di desktop */
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  nav {
+    position: fixed;
+    top: 0;
+    right: -100%; /* sembunyikan di luar layar */
+    height: 100%;
+    width: 250px;
+    background: rgba(0, 0, 0, 0.95);
+    flex-direction: column;
+    align-items: start;
+    padding: 80px 20px;
+    gap: 20px;
+    transition: right 0.3s ease;
+  }
+
+  nav.active {
+    right: 0; /* muncul dari kanan */
+  }
+
+  nav a {
+    display: block;
+    margin: 10px 0;
+    font-size: 1.2rem;
+  }
+
+  .menu-toggle {
+    display: block; /* tampil di HP */
+    z-index: 1001;
+  }
+}
+
 /* Dropdown */
 .dropdown {
   position: relative;
@@ -144,4 +186,5 @@ footer a {
   color: #e1306c; /* contoh warna instagram */
   background: rgba(255, 255, 255, 0.06); /* subtle background */
 }
+
 
