@@ -25,11 +25,18 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  z-index; 1000;
 }
 
 header .logo {
   height: 50px;
   margin-right: 7px;
+}
+
+nav {
+  display : flex;
+  align-items: center;
 }
 
 nav a {
@@ -60,32 +67,35 @@ nav a:hover {
 /* Mobile styles */
 @media (max-width: 768px) {
   nav {
-    position: fixed;
-    top: 0;
-    right: -100%; /* sembunyikan di luar layar */
-    height: 100%;
-    width: 250px;
+    position: absolute;
+    top: 100%;     /*     muncul tepat dibawah header */
+    right: 20px; 
     background: rgba(0, 0, 0, 0.95);
+    border-radius: 10px;
+    padding: 15px 20px;
+    display: none;      /*     default sembunyi */
     flex-direction: column;
-    align-items: start;
-    padding: 80px 20px;
-    gap: 20px;
-    transition: right 0.3s ease;
+    align-items: flex-start;
+    gap: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5)
   }
 
   nav.active {
-    right: 0; /* muncul dari kanan */
+    display: flex; 
+/*     muncul saat toggle */
+    animation: dropdownFade 0.3s ease;
   }
 
   nav a {
+    margin: 0;
+    font-size: 1rem;
     display: block;
-    margin: 10px 0;
-    font-size: 1.2rem;
+    width: 100%;
   }
 
   .menu-toggle {
     display: block; /* tampil di HP */
-    z-index: 1001;
+    z-index: 1101;
   }
 }
 
@@ -100,7 +110,10 @@ nav a:hover {
   position: absolute;
   background-color: #44444400;
   min-width: 160px;
-  z-index: 1;
+  border-radius: 8px
+  padding: 10px
+  z-index: 1001;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5)
 }
 
 .dropdown-content a {
@@ -110,8 +123,24 @@ nav a:hover {
   text-decoration: none;
 }
 
+.dropdown-content a:hover{
+  color: aquamarine;
+}
+
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+/* Animasi dropdown */
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 main {
@@ -186,5 +215,6 @@ footer a {
   color: #e1306c; /* contoh warna instagram */
   background: rgba(255, 255, 255, 0.06); /* subtle background */
 }
+
 
 
