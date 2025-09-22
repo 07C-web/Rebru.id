@@ -155,7 +155,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 100px; /* jarak antara gambar dan caption */
+  gap: 50px; /* jarak antara gambar dan caption */
   flex-wrap: wrap; /* supaya responsif di layar kecil */
   text-align: center;
 }
@@ -214,6 +214,7 @@ footer a {
   color: #e1306c; /* contoh warna instagram */
   background: rgba(255, 255, 255, 0.06); /* subtle background */
 }
+
 
 
 
