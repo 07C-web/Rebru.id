@@ -222,7 +222,7 @@ body.blog-page {
 
   /* Sticky Bar */
   position: sticky;
-  top: 30px; /* jarak dari atas layar */
+  top: 160px; /* jarak dari atas layar */
   height: fit-content; /* menempel sesuai konten */
 }
 
@@ -282,3 +282,4 @@ footer a {
   color: #e1306c; /* contoh warna instagram */
   background: rgba(255, 255, 255, 0.06); /* subtle background */
 }
+
